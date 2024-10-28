@@ -151,11 +151,28 @@
                 <textarea name="message" id="message"></textarea>
             </div>
             <div class="serial">
-                <label for="date">5. Date:</label>
+                <label for="test">5. Select Blood Test:</label>
+                <select name="test" id="test" required>
+                    <option value="" disabled selected>Select a blood test</option>
+                    <option value="CBC">Complete Blood Count (CBC)</option>
+                    <option value="Lipid Panel">Lipid Panel</option>
+                    <option value="Liver Function Test">Liver Function Test</option>
+                    <option value="Kidney Function Test">Kidney Function Test</option>
+                    <option value="Thyroid Panel">Thyroid Panel</option>
+                    <option value="Blood Glucose Test">Blood Glucose Test</option>
+                    <option value="Hematocrit">Hematocrit</option>
+                    <option value="Hemoglobin">Hemoglobin</option>
+                    <option value="Iron Studies">Iron Studies</option>
+                    <option value="Vitamin D">Vitamin D Test</option>
+                    <option value="Coagulation Panel">Coagulation Panel</option>
+                </select>
+            </div>
+            <div class="serial">
+                <label for="date">6. Date:</label>
                 <input type="date" id="date" name="date" required>
             </div>
             <div class="serial">
-                <label for="time">6. Time:</label>
+                <label for="time">7. Time:</label>
                 <input type="time" id="time" name="time" required min="08:00" max="18:00">
                 <div id="timeError" class="error"></div>
             </div>
