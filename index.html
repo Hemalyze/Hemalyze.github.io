@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Hemalyze</title>
+    <script>
+        window.onload = function() {
+            // Set today's date
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd; // Change to YYYY-MM-DD format
+            document.getElementById("date").setAttribute("min", today); // Set minimum date
+        }
+    </script>
 </head>
 <body>
     <header>
-
         <img src="HEMALYZE_20241017_204051_0000.png" alt="Hemalyze" width="100">
         <h1>Hemalyze</h1>
         <nav>
             <ul>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#appointment">Appointment</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -24,24 +35,27 @@
     </section>
     <section id="services">
         <h3>Our Services</h3>
-        <p>Blood Collection, testing and consultation.</p>
+        <p>Blood collection, testing, and consultation.</p>
     </section>
     <section id="appointment">
         <h3>Book an Appointment</h3>
         <form action="https://formspree.io/f/mgveozrj" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" required>
-    <label for="contact">Contact:</label>
-    <input type="contact" name="contact" number="contact" required>
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-    
-    <label for="message">Message:</label>
-    <textarea name="message" id="message" required></textarea>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
             
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required>
-    <button type="submit">Book Now</button>
+            <label for="contact">Contact:</label>
+            <input type="tel" name="contact" id="contact" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" required></textarea>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Book Now</button>
         </form>
     </section>
     <footer>
