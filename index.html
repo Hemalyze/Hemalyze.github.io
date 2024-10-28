@@ -20,15 +20,23 @@
         function validateForm(event) {
             var timeInput = document.getElementById("time").value;
             var timeError = document.getElementById("timeError");
+            var contactInput = document.getElementById("contact").value;
+            var contactError = document.getElementById("contactError");
 
             // Check if time is within range
             if (timeInput < "08:00" || timeInput > "18:00") {
                 event.preventDefault();
                 timeError.textContent = "Time must be between 08:00 am to 06:00 pm";
-                return false;
             } else {
                 timeError.textContent = "";
-                return true;
+            }
+
+            // Check if contact number is exactly 10 digits
+            if (contactInput.length !== 10 || isNaN(contactInput)) {
+                event.preventDefault();
+                contactError.textContent = "Contact number must be exactly 10 digits";
+            } else {
+                contactError.textContent = "";
             }
         }
     </script>
@@ -131,7 +139,8 @@
             </div>
             <div class="serial">
                 <label for="contact">2. Contact:</label>
-                <input type="tel" name="contact" id="contact" required>
+                <input type="tel" name="contact" id="contact" minlength="10" maxlength="10" required>
+                <div id="contactError" class="error"></div>
             </div>
             <div class="serial">
                 <label for="email">3. Email:</label>
