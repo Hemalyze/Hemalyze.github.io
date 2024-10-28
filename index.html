@@ -7,7 +7,6 @@
     <title>Hemalyze</title>
     <script>
         window.onload = function() {
-            // Set today's date
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -23,7 +22,6 @@
             var contactInput = document.getElementById("contact").value;
             var contactError = document.getElementById("contactError");
 
-            // Check if time is within range
             if (timeInput < "08:00" || timeInput > "18:00") {
                 event.preventDefault();
                 timeError.textContent = "Time must be between 08:00 am to 06:00 pm";
@@ -31,7 +29,6 @@
                 timeError.textContent = "";
             }
 
-            // Check if contact number is exactly 10 digits
             if (contactInput.length !== 10 || isNaN(contactInput)) {
                 event.preventDefault();
                 contactError.textContent = "Contact number must be exactly 10 digits";
@@ -41,17 +38,16 @@
         }
     </script>
     <style>
-        /* Style code */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            text-align: center;
+        header, #banner, #services, #appointment, footer {
+            background-color: #e9ecef; /* Same background color for all sections */
             padding: 20px;
-            background-color: #f8f9fa;
+            text-align: center;
         }
 
         header h1 {
@@ -63,7 +59,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 30px; /* Space between items */
+            gap: 30px;
         }
 
         nav ul li a {
@@ -73,14 +69,7 @@
         }
 
         #banner {
-            text-align: center;
             padding: 50px;
-            background-color: #e9ecef;
-        }
-
-        #services, #appointment, footer {
-            padding: 20px;
-            text-align: center;
         }
 
         .serial {
@@ -93,7 +82,6 @@
         }
 
         footer {
-            background-color: #f8f9fa;
             padding: 10px;
         }
     </style>
