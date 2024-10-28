@@ -77,6 +77,10 @@
             bottom: 0;
             width: 100%;
         }
+
+        .serial {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -101,24 +105,30 @@
     <section id="appointment">
         <h3>Book an Appointment</h3>
         <form action="https://formspree.io/f/mgveozrj" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required>
-            
-            <label for="contact">Contact:</label>
-            <input type="tel" name="contact" id="contact" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
-            
-            <label for="message">Message:</label>
-            <textarea name="message" id="message"></textarea>
-            
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-            
+            <div class="serial">
+                <label for="name">1. Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="serial">
+                <label for="contact">2. Contact:</label>
+                <input type="tel" name="contact" id="contact" required>
+            </div>
+            <div class="serial">
+                <label for="email">3. Email:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="serial">
+                <label for="message">4. Message:</label>
+                <textarea name="message" id="message"></textarea>
+            </div>
+            <div class="serial">
+                <label for="date">5. Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="serial">
+                <label for="time">6. Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
             <button type="submit">Book Now</button>
         </form>
     </section>
