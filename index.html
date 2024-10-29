@@ -84,6 +84,16 @@
         footer {
             padding: 10px;
         }
+
+        /* Centering the iframe */
+        #appointment iframe {
+            display: block;
+            margin: 20px auto; /* Center the iframe */
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Max width for larger screens */
+            height: 800px; /* Adjust height as needed */
+            border: 0; /* Remove default border */
+        }
     </style>
 </head>
 <body>
@@ -108,12 +118,12 @@
     <section id="appointment">
         <h3>Book an Appointment</h3>
         
-        <!-- Google Form iframe যুক্ত করা হলো -->
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdLUKfxF4avaWIRYfK3VG7YpOSWzUX8OsrfOJG0FbctGysyIg/viewform?embedded=true" width="350" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <!-- Google Form iframe added here -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdLUKfxF4avaWIRYfK3VG7YpOSWzUX8OsrfOJG0FbctGysyIg/viewform?embedded=true" loading="lazy">Loading…</iframe>
     </section>
     <footer>
         <p>Contact us at: +91-3331523577 or ranadebnath850@gmail.com</p>
-        <p>Address: Amtala, South 24 Parganas, Diamond harbour road 743503</p>
+        <p>Address: Amtala, South 24 Parganas, Diamond Harbour Road 743503</p>
     </footer>
 </body>
 </html>
