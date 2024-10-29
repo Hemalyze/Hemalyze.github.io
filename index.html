@@ -85,14 +85,14 @@
             padding: 10px;
         }
 
-        /* Centering the iframe */
-        #appointment iframe {
+        /* Centering the new HTML block */
+        #appointment .form-container {
             display: block;
-            margin: 20px auto; /* Center the iframe */
-            width: 80%; /* Adjust width as needed */
-            max-width: 600px; /* Max width for larger screens */
-            height: 800px; /* Adjust height as needed */
-            border: 0; /* Remove default border */
+            margin: 20px auto;
+            width: 80%;
+            max-width: 640px;
+            height: 1371px;
+            border: 0;
         }
     </style>
 </head>
@@ -117,9 +117,11 @@
     </section>
     <section id="appointment">
         <h3>Book an Appointment</h3>
-        
-        <!-- Google Form iframe added here -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdLUKfxF4avaWIRYfK3VG7YpOSWzUX8OsrfOJG0FbctGysyIg/viewform?embedded=true" loading="lazy">Loading…</iframe>
+
+        <!-- Replaced Google Form iframe with new HTML block -->
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdLUKfxF4avaWIRYfK3VG7YpOSWzUX8OsrfOJG0FbctGysyIg/viewform?embedded=true" width="640" height="1371" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
     </section>
     <footer>
         <p>Contact us at: +91-3331523577 or ranadebnath850@gmail.com</p>
