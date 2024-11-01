@@ -52,14 +52,19 @@
             padding: 0;
         }
 
-        header, #services, #appointment, footer {
+        header {
             background-color: #87CEEB;
             padding: 20px;
             text-align: center;
+            margin-bottom: 10px; /* header এর নিচে মার্জিন কমানো */
         }
 
-        header h1 {
-            margin: 10px 0;
+        header img {
+            margin-bottom: 5px; /* Hemalyze ইমেজের নিচের মার্জিন কমানো */
+        }
+
+        nav {
+            margin-top: 0; /* nav এর ওপরের মার্জিন 0 করা হয়েছে */
         }
 
         nav ul {
@@ -108,6 +113,10 @@
 
         footer {
             padding: 10px;
+        }
+
+        #services, #appointment, #contact {
+            margin-top: 20px; /* এই সেকশনগুলোর ওপরের মার্জিন */
         }
 
         #appointment .form-container {
