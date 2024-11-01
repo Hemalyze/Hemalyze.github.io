@@ -4,14 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CSS -->
     <title>Hemalyze</title>
 
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://docs.google.com; script-src 'self'; style-src 'self' 'unsafe-inline';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY"> <!-- Changed to DENY for stronger security -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <meta http-equiv="Referrer-Policy" content="no-referrer"> <!-- Prevents sending referrer information -->
+
+    <script>
+        window.onload = function() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById("date")?.setAttribute("min", today);
+        }
+
+        function validateForm(event) {
+            var timeInput = document.getElementById("time")?.value;
+            var timeError = document.getElementById("timeError");
+            var contactInput = document.getElementById("contact")?.value;
+            var contactError = document.getElementById("contactError");
+
+            if (timeInput < "08:00" || timeInput > "18:00") {
+                event.preventDefault();
+                timeError.textContent = "Time must be between 08:00 am to 06:00 pm";
+            } else {
+                timeError.textContent = "";
+            }
+
+            if (contactInput.length !== 10 || isNaN(contactInput)) {
+                event.preventDefault();
+                contactError.textContent = "Contact number must be exactly 10 digits";
+            } else {
+                contactError.textContent = "";
+            }
+        }
+    </script>
 
     <style>
         body {
@@ -21,7 +54,7 @@
         }
 
         header {
-            background-color: #87CEEB; /* Light blue background */
+            background-color: #87CEEB;
             padding: 20px;
             text-align: center;
             margin-bottom: 5px;
@@ -70,34 +103,24 @@
             font-weight: bold;
         }
 
+        .serial {
+            margin-bottom: 15px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
         footer {
-            background-color: #f9f9f9; /* Light background for the footer */
-            padding: 20px; /* Add some padding */
-            text-align: center; /* Center the text */
-            border-top: 2px solid #333; /* Top border for separation */
-            margin-top: 20px; /* Add top margin to separate from content */
+            padding: 10px;
         }
 
-        #contact {
-            padding: 20px; /* Padding for the contact section */
-            margin: 20px; /* Margin around the contact section */
-        }
-
-        #contact h3 {
-            margin-bottom: 10px; /* Margin below the heading */
-            color: #333; /* Dark color for heading */
-        }
-
-        #contact p {
-            margin: 5px 0; /* Margin between paragraphs */
-            color: #555; /* Gray color for text */
-        }
-
-        #services, #appointment {
+        #services, #appointment, #contact {
             margin-top: 20px;
         }
 
-        #services h3, #appointment h3 {
+        #services h3 {
             text-align: center;
             margin-bottom: 15px;
         }
@@ -105,6 +128,11 @@
         #services p {
             text-align: center;
             margin: 0;
+        }
+
+        #appointment h3 {
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         #appointment .form-container {
@@ -123,6 +151,29 @@
             border-radius: 5px;
             width: 100%;
             height: 1200px;
+        }
+
+        #contact {
+            text-align: center; /* Center the contact section text */
+        }
+
+        #contact p {
+            margin: 5px 0; /* Margin for spacing */
+        }
+
+        #contact a {
+            color: #007BFF; /* Link color */
+            text-decoration: underline; /* Underline for links */
+            font-weight: bold; /* Bold links */
+        }
+
+        #contact a:hover {
+            color: #0056b3; /* Darker shade on hover */
+        }
+
+        .icon {
+            margin-right: 5px; /* Space between icon and text */
+            vertical-align: middle; /* Align icon vertically */
         }
     </style>
 </head>
@@ -151,13 +202,16 @@
         </div>
     </section>
     <section id="contact">
-        <h3>Contact Us</h3>
-        <p>Phone: <a href="tel:+913331523577">+91-3331523577</a></p> <!-- Clickable phone number -->
-        <p>Email: <a href="mailto:ranadebnath850@gmail.com">ranadebnath850@gmail.com</a></p>
-        <p>Address: Amtala, South 24 Parganas, Diamond Harbour Road 743503</p>
+        <footer>
+            <p>
+                <i class="fas fa-phone icon"></i>
+                Contact us at: <a href="tel:+913331523577">+91-3331523577</a> 
+                or 
+                <i class="fas fa-envelope icon"></i>
+                <a href="mailto:ranadebnath850@gmail.com">ranadebnath850@gmail.com</a>
+            </p>
+            <p>Address: Amtala, South 24 Parganas, Diamond Harbour Road 743503</p>
+        </footer>
     </section>
-    <footer>
-        <p>&copy; 2024 Hemalyze. All rights reserved.</p>
-    </footer>
 </body>
 </html>
