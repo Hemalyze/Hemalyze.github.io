@@ -9,41 +9,9 @@
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://docs.google.com; script-src 'self'; style-src 'self' 'unsafe-inline';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Frame-Options" content="DENY"> <!-- Changed to DENY for stronger security -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-
-    <script>
-        window.onload = function() {
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0');
-            var yyyy = today.getFullYear();
-
-            today = yyyy + '-' + mm + '-' + dd;
-            document.getElementById("date")?.setAttribute("min", today);
-        }
-
-        function validateForm(event) {
-            var timeInput = document.getElementById("time")?.value;
-            var timeError = document.getElementById("timeError");
-            var contactInput = document.getElementById("contact")?.value;
-            var contactError = document.getElementById("contactError");
-
-            if (timeInput < "08:00" || timeInput > "18:00") {
-                event.preventDefault();
-                timeError.textContent = "Time must be between 08:00 am to 06:00 pm";
-            } else {
-                timeError.textContent = "";
-            }
-
-            if (contactInput.length !== 10 || isNaN(contactInput)) {
-                event.preventDefault();
-                contactError.textContent = "Contact number must be exactly 10 digits";
-            } else {
-                contactError.textContent = "";
-            }
-        }
-    </script>
+    <meta http-equiv="Referrer-Policy" content="no-referrer"> <!-- Prevents sending referrer information -->
 
     <style>
         body {
@@ -102,15 +70,6 @@
             font-weight: bold;
         }
 
-        .serial {
-            margin-bottom: 15px;
-        }
-
-        .error {
-            color: red;
-            font-size: 12px;
-        }
-
         footer {
             background-color: #f9f9f9; /* Light background for the footer */
             padding: 20px; /* Add some padding */
@@ -134,7 +93,7 @@
             color: #555; /* Gray color for text */
         }
 
-        #services, #appointment, #contact {
+        #services, #appointment {
             margin-top: 20px;
         }
 
